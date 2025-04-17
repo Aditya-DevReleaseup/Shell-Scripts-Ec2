@@ -1,0 +1,71 @@
+Method to create a local feature branch from main branch(as any new branch first time is created from main brach)
+and push the changes to remote github branch that is not present on github but will be created by us using Cli commands
+
+local-branch --> main branch to commit new features/data 
+we have to create a pull request after commit to local branch to push that data to main branch and after approval only  that data is commit/saved in main brach, if i am the owner of the branch i can directly push to local and then create pull request from main and approve pull reuest by myself to merge in my main branch 
+using brach protection rules i can add extra verify/approval steps for colaborators
+
+Push new branch to a remote Git repo
+Follow these steps to have Git push a local branch to a remote repo:
+
+Local and remote git repo connectivity
+If local connectivity to the remote Git does not exist, you’ll need to either:
+Perform a remote add to connect your existing Git project to the remote repo
+Do a git clone the remote repo and move your development workspace into the cloned location
+New branch to remote Git repo commands
+The following example demonstrates the steps a developer would go through to push a local branch to a remote Git repo.
+
+Create the local branch
+To create a new local branch that you will push to the remote GitHub repo, just run a Git branch, switch or checkout command. There are many ways to create branches in Git.
+
+#github@branch/c/remote/push (main)  or 
+#git switch -c new-branch
+Verify the branch was created
+A git branch -a command verifies that the new Git branch being pushed to the remote GitHub repo was indeed created locally.
+
+github@branch/c/remote/push (new-branch)
+git branch -a
+main
+* new-branch
+remotes/origin/HEAD -> origin/main
+remotes/origin/main
+remotes/origin/new-branch
+Note that I use the git switch command to create and move to a new branch, rather than the git checkout command. The git switch replaced git checkout in a 2019 Git release.
+
+2. Use the git push –set-upstream command
+Once you create a new branch, you must run the –set-upstream switch the first time you perform a push.
+This use of the –set-upstream parameter (two dashes) only needs to happen once. All subsequent git push commands automatically move local branch changes up to the remote branch.
+
+$ git push --set-upstream origin new-branch
+Enumerating objects: 3, done. 
+* [new branch] new-branch -> new-branch 
+Branch 'new-branch' set up to track remote branch 'new-branch' from 'origin'.
+// new local-branch is made in github under our project repo 
+
+The -u switch can be used in place of the --set-upstream parameter if you want to conserve keystrokes.>
+Git’s no upstream branch error
+If you fail to perform the –set-upstream (two dashes) step, you will encounter error when you push the new branch to the remote repo:
+To push a new Git branch to a remote repo requires an extra step — namely, add the –set-upstream parameter (with two dashes) to the git push command.
+
+Ongoing Git push and pull commands
+The full set of commands used in this example of how to push a local branch remotely are as follows:
+
+github@branch/c/remote/push  (new-branch)
+git clone https://github.com/learn-git-fast/git-branch-examples.git
+cd git*
+git checkout -b new-branch
+
+github@branch/c/remote/push (new-branch)
+git branch -a
+touch devolution.jpg
+git add .
+git commit -m "About to Git push a local branch upstream to a remote GitHub repo."
+git push --set-upstream origin new-branch
+
+github@branch/c/remote/push (new-branch)
+touch eden.html
+git add .
+git commit -m "Eden added"
+git push origin
+
+

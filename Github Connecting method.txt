@@ -1,0 +1,33 @@
+so a user can add another user to commit in his repository by adding him to our collaborators in github and later he can provide us his public key-file to upload on our github keypairs so that he can connect to our github using his private key file
+
+git init 
+git add .
+git ./
+git add README.MD --> saving the changes into temp/stagig area
+git commit -m "First time commit" --> commiting the changes into local repo
+1> token based git push origin master/main
+git config --global user.email "info@joindevops.com"     --> we need a user email to understand who did this change
+git config --global user.name "sivakumarreddy"
+git remote add origin https://github.com/Aditya-DevReleaseup/Shell-Scripts-Ec2.git
+git push -m  
+/ add repository url using origin(points to remote repo default main branch)
+
+2> SSH Authentication to GitHub
+ssh -i <private-key> username@IP/domain-name
+
+3. git push origin master --> pushing the changes to central repository have two methods
+1. token based
+2. SSH based
+
+1. create repo in central, and work with it
+2. you have existing folder, how can you push
+
+Github ssh method 
+
+add a public key to the server 
+make .ssh folder in users(current user that we are going to use terminal) dir 
+give the private key file url in config file under c/users/ssh/config
+give the data of url of private key file like under  ~/.ssh/private
+connect = #ssh -i private-key username@IP    /automatically taken private file from .ssh directory
+add remote repo using ssh url from github repo under code 
+git remote set-url origin git@github.com:Aditya-DevReleaseup/Shell-Scripts-Ec2.git
