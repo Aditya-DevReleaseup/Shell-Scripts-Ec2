@@ -1,0 +1,7 @@
+ubuntu
+Loginubuntucore@321
+
+
+cancel subscription 
+https://portal.azure.com/#@newpirodjfjoutlook.onmicrosoft.com/resource/subscriptions/df90a089-8197-48de-84af-9e5bd5bcfabd/overview
+sudo apt-get install xrdp
